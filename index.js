@@ -12,7 +12,7 @@ app.post('/webhook', (req, res) => {
   const { event, product_id, order_id, amount } = req.body;
 
   if (event === 'sale') {
-    error.log(`🎉 New purchase received!`);
+    console.log(`🎉 New purchase received!`);
     console.log(`Product ID: ${product_id}`);
     console.log(`Order ID: ${order_id}`);
     console.log(`Amount: ${amount}`);
