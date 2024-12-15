@@ -9,7 +9,7 @@ console.log("Server is starting...");
 
 // Webhook endpoint
 app.post('/webhook', (req, res) => {
-  console.log('POST /webhook hit:', req.body);
+  console.log('Webhook received:', req.body); // This should print in logs
   res.status(200).send('Webhook received successfully!');
 });
 
