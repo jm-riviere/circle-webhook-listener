@@ -5,17 +5,15 @@ app.use(express.json()); // Parse incoming JSON payloads
 
 // Webhook endpoint
 app.post('/webhook', (req, res) => {
-  // Log the incoming payload
-  console.log('New webhook received from DigiStore:', req.body);
+  console.error('New webhook received from DigiStore:', req.body);
 
-  // Check for a purchase event
   const { event, product_id, order_id, amount } = req.body;
 
   if (event === 'sale') {
-    console.log(`🎉 New purchase received!`);
-    console.log(`Product ID: ${product_id}`);
-    console.log(`Order ID: ${order_id}`);
-    console.log(`Amount: ${amount}`);
+    console.error(`🎉 New purchase received!`);
+    console.error(`Product ID: ${product_id}`);
+    console.error(`Order ID: ${order_id}`);
+    console.error(`Amount: ${amount}`);
   }
 
   res.status(200).send('Webhook received successfully!');
@@ -29,5 +27,5 @@ app.get('/', (req, res) => {
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.error(`Server running on port ${PORT}`);
 });
